@@ -15,8 +15,8 @@ export default class Animation {
       this._tl.pause(0).clear().add(this.moveUpDownTimeline()).resume();
     });
     this._stopBtn.addEventListener("click", () => {
-        this._tl.pause(0).clear();
-      });
+      this._tl.pause(0).clear();
+    });
   }
 
   scaleTimeline() {
@@ -26,10 +26,12 @@ export default class Animation {
     timeLine.to(this._planets, {
       scale: 0.1,
       stagger: { each: 0.1, from: "edges" },
+      id: "scaleStagger",
     });
     timeLine.to(this._planets, {
       scale: 1,
       stagger: { each: 0.1, from: "edges" },
+      id: "scaleStagger",
     });
     return timeLine;
   }
@@ -41,10 +43,12 @@ export default class Animation {
     timeLine.to(this._planets, {
       y: "50px",
       stagger: { each: 0.1, from: "edges" },
+      id:"positionStagger"
     });
     timeLine.to(this._planets, {
       y: 0,
       stagger: { each: 0.1, from: "edges" },
+      id:"positionStagger"
     });
     return timeLine;
   }
